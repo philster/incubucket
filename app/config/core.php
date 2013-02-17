@@ -38,7 +38,7 @@
 
 // globals
 
-    Configure::write( 'site_name', 'hackblog-cake' );
+    Configure::write( 'site_name', 'incubucket' );
 
 
 /**
