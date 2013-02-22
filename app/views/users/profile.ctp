@@ -6,7 +6,7 @@
 <?= $form->input( 'User.new_password', array( 'label'=>'New password', 'type'=>'password' ) ); ?>
 <?= $form->input( 'User.re_new_password', array( 'label'=>'Repeat new password', 'type'=>'password' ) ); ?>
     <div class="footer-row">
-        <a href="/users/delete" style="float:left;color: #f00">Delete my account</a>
+        <?= $this->Html->link('Delete my account', '/users/delete', array('style' => 'float:left;color:#f00')) ?>
         <button type="submit">Update my account</button>
     </div>
 <?= $form->end(); ?>

@@ -3,7 +3,7 @@
 <?= $form->input( 'User.password', array( 'label'=>'Password', 'type'=>'password' ) ); ?>
 <div class="footer-row">
     <div style="float:left;margin-top:10px">
-        <a href="/users/restorepassword">Restore password</a>&nbsp;|&nbsp;<a href="/users/resend">Re-send activation email</a>
+        <?= $this->Html->link('Restore password', '/users/restorepassword') ?>&nbsp;|&nbsp;<?= $this->Html->link('Re-send activation email', '/users/resend') ?>
     </div>
     <button type="submit">Sign-in</button>
 </div>

@@ -1,6 +1,5 @@
 <?php
     $logged_in_links = array(
-        'hackathons'    => '/hackathons',
         'news'          => '/news',
         'events'        => '/events',
         'locations'     => '/locations',
@@ -16,7 +15,7 @@
     $links = ( isset( $User ) && !empty( $User ) ) ? $logged_in_links : $logged_out_links;
 ?>
 <?php if ( isset( $User ) && !empty( $User ) && $User['role'] == 'admin' ): ?>
-    <a href="/admin/dashboard" style="font-weight:bold;color: #ff0">backend</a>&nbsp;
+    <?= $this->Html->link('backend', '/admin/dashboard', array('style' => 'font-weight:bold;color: #ff0')) . '&nbsp;' ?>
 <?php endif; ?>
 <?php
     $i=0;
@@ -25,7 +24,7 @@
 ?>
         <span class="active"><?= $title ?></span>
 <?php   else: ?>
-        <a href="<?= $url ?>"><?= $title ?></a>
+        <?= $this->Html->link($title, $url) ?>
 <?php
         endif;
         echo '&nbsp;';
@@ -33,5 +32,8 @@
 ?>
 
 <?php if ( isset( $User ) && !empty( $User ) ): ?>
-    <a href="/rss/<?= $User['ac_code'] ?>.rss"><img src="/img/rss.png" align="top"/></a>
+    <?= $this->Html->link(
+        $this->Html->image('/img/rss.png', array('align' => 'top')),
+        '/rss/' . $User['ac_code'] . '.rss', 
+        array('escape' => false)) ?>
 <?php endif; ?>

@@ -1,11 +1,11 @@
 <div class="cpanel">
     Display as:
 <?php if ( $view_mode == 'list' ): ?>
-    <strong>List</strong>&nbsp;|&nbsp;<a href="/events/setmode/calendar">Calendar</a>
+    <strong>List</strong>&nbsp;|&nbsp;<?= $this->Html->link('Calendar', '/events/setmode/calendar') ?>
 <?php else: ?>
-    <a href="/events/setmode/list">List</a>&nbsp;|&nbsp;<strong>Calendar</strong>
+    <?= $this->Html->link('List', '/events/setmode/list') ?>&nbsp;|&nbsp;<strong>Calendar</strong>
 <?php endif; ?>
-    <a href="/events/add" style="margin-left:15px">Add event</a>
+    <?= $this->Html->link('Add event', '/events/add', array('style' => 'margin-left:15px')) ?>
 </div>
 <?php if ( !empty( $this->data ) || $view_mode == 'calendar' ): ?>
     <?= $this->element( "events/{$view_mode}" ); ?>

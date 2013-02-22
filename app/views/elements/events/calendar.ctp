@@ -28,9 +28,9 @@
     }
 ?>
 <div class="row-b" style="text-align:center;padding: 10px;font-weight:bold;">
-    <a href="/events/index/month:<?= $prev_month?>/year:<?= $prev_year ?>" style="float:left">&laquo;</a>
+    <?= $this->Html->link('&laquo;', '/events/index/month:' . $prev_month . '/year:' . $prev_year, array('style' => 'float:left', 'escape' => false)) ?>
     <?= $month_name ?>
-    <a href="/events/index/month:<?= $next_month?>/year:<?= $next_year ?>" style="float:right">&raquo;</a>
+    <?= $this->Html->link('&raquo;', '/events/index/month:' . $next_month . '/year:' . $next_year, array('style' => 'float:right', 'escape' => false)) ?>
 </div>
 <table cellpadding="5" cellspacing="5" width="100%" class="calendar">
     <tr>
@@ -61,7 +61,7 @@
                     <tr id="row_<?= $row['Event']['id']?>">
                         <td>
                             <?= $form->input( "Event.{$row['Event']['id']}.complete", array( 'label'=>'', 'class'=>'complete', 'value'=>$row['Event']['id'], 'type'=>'checkbox' ) ) ?>
-                            <a href="/events/info/<?= $row['Event']['id']?>" class="event_info"><?= $row['Event']['title'] ?>
+                            <?= $this->Html->link($row['Event']['title'], '/events/info/' . $row['Event']['id'], array('class' => 'event_info')) ?>
                         </td>
                     </tr>
 <?php endforeach; ?>

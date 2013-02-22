@@ -1,5 +1,5 @@
 <div class="cpanel">
-    <a href="/locations/add" style="margin-left:15px">Add location</a>
+    <?= $this->Html->link('Add location', '/locations/add', array('style' => 'margin-left:15px')) ?>
 </div>
 <?php if ( !empty( $this->data ) ): ?>
 <table width="100%" cellpadding="2" cellspacing="2">
@@ -19,8 +19,8 @@
         <td><?= $row['Location']['state'] ?></td>
         <td><?= $row['Location']['zip'] ?></td>
         <td>
-            <a href="/locations/edit/<?= $row['Location']['id']?>">edit</a>
-            <a href="/locations/delete/<?= $row['Location']['id']?>" class="delete">del</a>
+            <?= $this->Html->link('edit', '/locations/edit/' . $row['Location']['id']) ?>
+            <?= $this->Html->link('del', '/locations/delete/' . $row['Location']['id'], array('class' => 'delete')) ?>
         </td>
     </tr>
 <?php endforeach; ?>

@@ -17,11 +17,11 @@
         echo ' style="color:#f00" ';
     endif; ?>
         ><?= $time->niceShort( $row['Event']['exp_date'] ) ?></td>
-        <td><a href="/locations/info/<?= $row['Location']['id'] ?>" class="location_info"><?= $row['Location']['title'] ?></a></td>
-        <td><a href="<?= $row['Event']['url'] ?>" target="_blank"><?= $row['Event']['url'] ?></a></td>
+        <td><?= $this->Html->link($row['Location']['title'], '/locations/info/' . $row['Location']['id'], array('class' => 'location_info')) ?></td>
+        <td><?= $this->Html->link($row['Event']['url'], $row['Event']['url'], array('target' => '_blank')) ?></td>
         <td>
-            <a href="/events/edit/<?= $row['Event']['id']?>">edit</a>
-            <a href="/events/delete/<?= $row['Event']['id']?>" class="delete">del</a>
+            <?= $this->Html->link('edit', '/events/edit/' . $row['Event']['id']); ?>
+            <?= $this->Html->link('del', '/events/delete/' . $row['Event']['id'], array('class' => 'delete')) ?>
         </td>
     </tr>
 <?php endforeach; ?>

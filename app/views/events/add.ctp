@@ -7,7 +7,7 @@
 <?= $form->input( 'Location.title', array( 'label'=>'Location', 'style'=>'float:left;width:70%', 'after'=>'<a href="javascript:void(0)" style="float:left;margin:0px 10px" id="addLocationDialog">add location</a>' ) ); ?>
 <br class="clear" />
 <div class="footer-row">
-    <a href="/events">Cancel</a>
+    <?= $this->Html->link('Cancel', '/events') ?>
     <button type="submit">Add Event</button>
 </div>
 <?= $form->end(); ?>

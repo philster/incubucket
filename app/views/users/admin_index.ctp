@@ -8,7 +8,7 @@
         <?= $form->input( "User.activated", array( 'label'=>'Activated', 'options'=>array( 'all'=>'All', 'yes'=>'Yes', 'no'=>'No' ), 'default'=>$filter['activated'] ) )?>
         <?= $form->input( "User.enabled", array( 'label'=>'Enabled', 'options'=>array( 'all'=>'All', 'yes'=>'Yes', 'no'=>'No' ), 'default'=>$filter['enabled'] ) )?>
         <div style="float:right">
-            <a href="/admin/users/reset_filter">reset filter</a>
+            <?= $this->Html->link('reset filter', '/admin/users/reset_filter') ?>
             <button>Set filter</button>
         </div>
 

@@ -14,7 +14,7 @@
 ?>
         <span class="active"><?= $title ?></span>
 <?php   else: ?>
-        <a href="<?= $url ?>"><?= $title ?></a>
+        <?= $this->Html->link($title, $url) ?>
 <?php
         endif;
         echo '&nbsp;';

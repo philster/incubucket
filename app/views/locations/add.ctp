@@ -5,7 +5,7 @@
 <?= $form->input( 'Location.state', array( 'label'=>'State', 'options'=>$address->us_states ) ); ?>
 <?= $form->input( 'Location.zip', array( 'label'=>'Zip' ) ); ?>
 <div class="footer-row">
-    <a href="/locations" id="cancelAddLocation">cancel</a>
+    <?= $this->Html->link('cancel', '/locations', array('id' => 'cancelAddLocation')) ?>
     <button type="submit" id="processAddLocation">Add location</button>
 </div>
 <?= $form->end() ?>
