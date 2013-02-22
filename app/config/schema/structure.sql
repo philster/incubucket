@@ -23,10 +23,20 @@ CREATE TABLE `events` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `user_id` int(10) unsigned default NULL,
   `location_id` int(10) unsigned default NULL,
+  `start_datetime` datetime DEFAULT NULL,
+  `end_datetime` datetime DEFAULT NULL,
   `exp_date` datetime default NULL,
   `title` varchar(255) default '',
+  `theme` varchar(255) DEFAULT '',
   `description` text,
   `url` varchar(255) default '',
+  `image_path` varchar(255) default '',
+  `video_path` varchar(255) default '',
+  `news_url` varchar(255) default '',
+  `organizer1_id` int(10) unsigned DEFAULT NULL,
+  `organizer2_id` int(10) unsigned DEFAULT NULL,
+  `api_set_id` int(10) unsigned DEFAULT NULL,
+  `rating` int(4) NOT NULL DEFAULT '0',
   `complete` enum('yes','no') default 'no',
   `created` datetime default NULL,
   `modified` datetime default NULL,
@@ -49,6 +59,50 @@ CREATE TABLE `locations` (
   `created` datetime default NULL,
   `modified` datetime default NULL,
   PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Table structure for table `organizers` */
+
+DROP TABLE IF EXISTS `organizers`;
+
+CREATE TABLE IF NOT EXISTS `organizers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) default '',
+  `title` varchar(255) default '',
+  `phone` varchar(20) default '',
+  `image_url` varchar(255) default '',
+  `linkedin_url` varchar(255) default '',
+  `company` varchar(255) default '',
+  `skillset` varchar(255) default '',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Table structure for table `apiset` */
+
+DROP TABLE IF EXISTS `apiset`;
+
+CREATE TABLE IF NOT EXISTS `apiset` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Table structure for table `news` */
+
+DROP TABLE IF EXISTS `news`;
+
+CREATE TABLE IF NOT EXISTS `news` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `event_id` int(10) unsigned NOT NULL,
+  `title` varchar(255) DEFAULT '',
+  `image_path` varchar(255) DEFAULT '',
+  `video_url` varchar(255) DEFAULT '',
+  `rating` int(4) unsigned NOT NULL DEFAULT '0',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
