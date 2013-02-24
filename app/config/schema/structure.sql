@@ -99,6 +99,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `title` varchar(255) DEFAULT '',
   `image_path` varchar(255) DEFAULT '',
   `video_url` varchar(255) DEFAULT '',
+  `content` text NOT NULL,
   `rating` int(4) unsigned NOT NULL DEFAULT '0',
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
